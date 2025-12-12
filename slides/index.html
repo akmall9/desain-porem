@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Installer Slideshow</title>
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+</style>
+<script>
+let current = 0;
+function showSlides() {
+    const slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[current].style.display = "block";
+    current = (current + 1) % slides.length;
+    setTimeout(showSlides, 5000); // 5 detik per slide
+}
+window.onload = showSlides;
+</script>
+</head>
+<body>
+    <img class="slide" src="screenshots/1.png">
+    <img class="slide" src="screenshots/2.png">
+    <img class="slide" src="screenshots/3.png">
+    <img class="slide" src="screenshots/4.png">
+</body>
+</html>
